@@ -9,6 +9,7 @@ import com.f1b3.b3.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.List;
@@ -61,6 +62,7 @@ public class MentoringService {
         return mentoringRepository.findAll();
     }
 
+    @Transactional
     public String save(MentoringCreateRequest mentoringRequest, Long mentorId) {
         // 멘토 id를 우선적으로 조회
         Optional<User> mentor = userRepository.findById(mentorId);
