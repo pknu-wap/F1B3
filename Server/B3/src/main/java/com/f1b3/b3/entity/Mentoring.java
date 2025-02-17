@@ -50,12 +50,14 @@ public class Mentoring {
     private String mentoringTime;
 
     @OneToMany(mappedBy = "mentoring", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JoinColumn(name = "career_id")
     private List<Career> career = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mentee_id")
-    private List<User> mentee = new ArrayList<>();
+    @OneToMany(mappedBy = "mentoring")
+    private List<Apply> apply = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User mentor;
 
     @Builder
     public Mentoring(MeetingType meetingType,
@@ -69,7 +71,7 @@ public class Mentoring {
                      String mentoringTime,
                      boolean finished,
                      List<Career> career,
-                     List<User> mentee) {
+                     List<Apply> apply) {
         this.finished = finished;
         this.meetingType = meetingType;
         this.title = title;
@@ -80,7 +82,7 @@ public class Mentoring {
         this.preparation = preparation;
         this.mentoringTime = mentoringTime;
         this.career = career;
-        this.mentee = mentee;
+        this.apply = apply;
         this.price = price;
     }
 }
