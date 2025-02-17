@@ -3,6 +3,7 @@ package com.f1b3.b3.controller;
 import com.f1b3.b3.entity.Mentoring;
 import com.f1b3.b3.dto.MentoringCreateRequest;
 import com.f1b3.b3.dto.MentoringDetail;
+import com.f1b3.b3.service.EmailService;
 import com.f1b3.b3.service.MentoringService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
