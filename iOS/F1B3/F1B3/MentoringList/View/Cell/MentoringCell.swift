@@ -15,7 +15,7 @@ struct MentoringCell: View {
         VStack(alignment: .leading) {
             MentoringCellHeaderView(
                 fieldString: mentoring.fieldString,
-                mentorName: mentoring.mentorID.name
+                mentorName: mentoring.mentor.name
             )
             
             Divider()
@@ -27,6 +27,10 @@ struct MentoringCell: View {
                 meetingType: mentoring.meetingType.rawValue
             )
         }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(10)
+        .shadow(color: Color.gray.opacity(1), radius: 4, x: 0, y: 2)
     }
 }
 
@@ -107,7 +111,7 @@ struct MentoringCell_Previews: PreviewProvider {
 
 let dummyMentoring = Mentoring(
     id: 101,
-    mentorID: User(
+    mentor: User(
         id: 1,
         name: "김민석",
         phoneNumber: 1012345678,
@@ -115,7 +119,7 @@ let dummyMentoring = Mentoring(
         description: "iOS 개발자 & 멘토",
         profileURL: "https://example.com/profile1.jpg"
     ),
-    menteeID: [
+    mentee: [
         User(
             id: 2,
             name: "이승훈",
