@@ -22,11 +22,12 @@ final class MentoringManager: ObservableObject {
                 print("❌ 데이터를 문자열로 변환할 수 없습니다.")
             }
             guard let mentoringDTOs = try? JSONDecoder().decode([MentoringDTO].self, from: data) else { return }
+            print(mentoringDTOs)
             let mentorings = mentoringDTOs.map { $0.DtoToDomain() }
             self.mentoringList.append(contentsOf: mentorings)
         }.resume()
         
-        self.mentoringList = dummyMentorings
+//        self.mentoringList = dummyMentorings
     }
     
     let dummyMentorings: [Mentoring] = [
@@ -53,7 +54,7 @@ final class MentoringManager: ObservableObject {
             finished: false,
             meetingType: .online,
             title: "iOS 앱 개발 입문",
-            field: [.iT],
+            field: "IT",
             introduction: "Swift와 UIKit을 활용하여 iOS 앱 개발을 처음부터 배우는 강의입니다.",
             subject: "Swift, UIKit, Xcode",
             method: "온라인 Zoom 강의",
@@ -86,7 +87,7 @@ final class MentoringManager: ObservableObject {
             finished: false,
             meetingType: .offline,
             title: "백엔드 개발 기초",
-            field: [.iT],
+            field: "IT",
             introduction: "Spring Boot와 MySQL을 활용하여 백엔드 개발을 시작하는 강의입니다.",
             subject: "Java, Spring Boot, MySQL",
             method: "오프라인 강의",
@@ -119,7 +120,7 @@ final class MentoringManager: ObservableObject {
             finished: true,
             meetingType: .online,
             title: "UX/UI 디자인 시스템 구축",
-            field: [.design],
+            field: "Design",
             introduction: "Figma를 활용한 UX/UI 디자인 시스템 구축 실습",
             subject: "Figma, Sketch, UX Research",
             method: "온라인 강의",

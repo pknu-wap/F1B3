@@ -14,16 +14,12 @@ struct Mentoring {
     let finished: Bool
     let meetingType: MeetingType
     let title: String
-    let field: [Field]
+    let field: String
     let introduction: String
     let subject: String
     let method: String
     let preparation: String
     let career: [Career]
-    
-    var fieldString: String {
-        field.map { $0.value }.joined(separator: ", ")
-    }
     
     var careerValue: String {
         let totalExperience = career.reduce(0) { $0 + $1.experience }

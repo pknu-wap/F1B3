@@ -14,7 +14,7 @@ struct MentoringCell: View {
     var body: some View {
         VStack(alignment: .leading) {
             MentoringCellHeaderView(
-                fieldString: mentoring.fieldString,
+                fieldString: mentoring.field,
                 mentorName: mentoring.mentor.name
             )
             
@@ -23,7 +23,7 @@ struct MentoringCell: View {
             MentoringCellBodyView(
                 title: mentoring.title,
                 careerValue: mentoring.careerValue,
-                fieldString: mentoring.fieldString,
+                fieldString: mentoring.field,
                 meetingType: mentoring.meetingType.rawValue
             )
         }
@@ -140,7 +140,7 @@ let dummyMentoring = Mentoring(
     finished: false,
     meetingType: .online,
     title: "iOS 앱 개발 입문",
-    field: [.iT], // ✅ `Field` 열거형 사용
+    field: "IT",
     introduction: "Swift와 UIKit을 활용하여 iOS 앱 개발을 처음부터 배우는 강의입니다.",
     subject: "Swift, UIKit, Xcode",
     method: "온라인 Zoom 강의",
