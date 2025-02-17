@@ -13,9 +13,9 @@ final class CareerInputView: BaseView {
     private lazy var yearContentLabel = createLabel(text: "년")
     private lazy var contentLabel = createLabel(text: "직무 내용")
     
-    private lazy var companyInputView = createTextField(placeholder: "OO회사")
-    private lazy var yearInputView = createTextField(placeholder: "OO")
-    private lazy var contentInputView = createTextField()
+    private lazy var companyInputView = createTextView(placeholder: "OO회사")
+    private lazy var yearInputView = createTextView(placeholder: "00")
+    private lazy var contentInputView = createTextView()
     private let splitView: UIView = {
         let uiView = UIView()
         uiView.backgroundColor = UIColor.gray
@@ -126,10 +126,15 @@ final class CareerInputView: BaseView {
         return label
     }
     
-    private func createTextField(placeholder: String? = nil) -> UITextField {
-        let textField = UITextField()
-        textField.placeholder = placeholder
-        textField.borderStyle = .roundedRect
-        return textField
+    private func createTextView(placeholder: String? = nil) -> PlaceholderTextView {
+        let textView = PlaceholderTextView()
+        textView.placeholder = placeholder
+        textView.font = UIFont.systemFont(ofSize: 14)
+        textView.layer.borderWidth = 1
+        textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.layer.cornerRadius = 5
+        textView.isScrollEnabled = false
+        textView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        return textView
     }
 }
