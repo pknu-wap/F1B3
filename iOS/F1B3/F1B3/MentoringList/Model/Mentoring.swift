@@ -13,7 +13,7 @@ struct Mentoring {
     let menteeID: [User]
     let finished: Bool
     let meetingType: MeetingType
-    let title: String?
+    let title: String
     let field: [Field]
     let introduction: String
     let subject: String
@@ -23,6 +23,13 @@ struct Mentoring {
     
     var fieldString: String {
         field.map { $0.value }.joined(separator: ", ")
+    }
+    
+    var careerValue: String {
+        let totalExperience = career.reduce(0) { $0 + $1.experience }
+        let companyNames = career.map { $0.companyName }.joined(separator: ", ")
+
+        return "\(companyNames) (\(totalExperience)년차)"
     }
 }
 
@@ -47,11 +54,12 @@ enum Field: String, Codable {
 
 struct Career: Codable {
     let companyName: String
-    let years: Date
+    let experience: Int
     let description: String?
 }
 
-enum MeetingType: Codable {
-    case online
-    case offline
+enum MeetingType: String, Codable {
+    case online = "온라인"
+    case offline = "오프라인"
+    case blended = "혼합"
 }

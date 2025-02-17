@@ -12,26 +12,86 @@ struct MentoringCell: View {
     let mentoring: Mentoring
     
     var body: some View {
-        VStack {
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(mentoring.fieldString)
-                        .font(.system(size: 16))
-                        .foregroundColor(Color.gray)
-                    Text(mentoring.mentorID.name)
-                        .font(.system(size: 20, weight: .bold))
-                }
-                Spacer()
-                Image(systemName: "person")
-                    .frame(width: 50, height: 50)
-                    .background(Color.red)
-                    .cornerRadius(50)
-            }
+        VStack(alignment: .leading) {
+            MentoringCellHeaderView(
+                fieldString: mentoring.fieldString,
+                mentorName: mentoring.mentorID.name
+            )
+            
+            Divider()
+            
+            MentoringCellBodyView(
+                title: mentoring.title,
+                careerValue: mentoring.careerValue,
+                fieldString: mentoring.fieldString,
+                meetingType: mentoring.meetingType.rawValue
+            )
         }
     }
-    
-    var 
 }
+
+// MARK: - Cell Header View
+
+struct MentoringCellHeaderView: View {
+    let fieldString: String
+    let mentorName: String
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 6) {
+                Text(fieldString)
+                    .font(.system(size: 16))
+                    .foregroundColor(Color.gray)
+                Text(mentorName)
+                    .font(.system(size: 20, weight: .semibold))
+            }
+            
+            Spacer()
+            
+            Image(systemName: "person")
+                .frame(width: 50, height: 50)
+                .background(Color.red)
+                .cornerRadius(50)
+        }
+    }
+}
+
+// MARK: - Cell Body View
+
+struct MentoringCellBodyView: View {
+    let title: String
+    let careerValue: String
+    let fieldString: String
+    let meetingType: String
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(title)
+                .font(.system(size: 20, weight: .bold))
+            descriptionView(title: "경력", description: careerValue)
+            descriptionView(title: "분야", description: fieldString)
+            descriptionView(title: "진행방식", description: meetingType)
+        }
+    }
+}
+
+struct descriptionView: View {
+    let title: String
+    let description: String
+    
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.system(size: 14))
+                .foregroundColor(Color.gray)
+            Text(description)
+                .font(.system(size: 14))
+        }
+        .padding(.leading, 10)
+    }
+}
+
+// MARK: - Previews
 
 struct MentoringCell_Previews: PreviewProvider {
     static var previews: some View {
@@ -82,8 +142,8 @@ let dummyMentoring = Mentoring(
     method: "온라인 Zoom 강의",
     preparation: "Xcode 설치 필수",
     career: [
-        Career(companyName: "네이버", years: Date(), description: "iOS 개발"),
-        Career(companyName: "카카오", years: Date(), description: "UX/UI 디자인")
+        Career(companyName: "네이버", experience: 5, description: "iOS 개발"),
+        Career(companyName: "카카오", experience: 3, description: "UX/UI 디자인")
     ]
 )
 
