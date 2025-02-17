@@ -14,10 +14,13 @@ public class Career {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="career_id")
     private Long id;
+
     @Column(name="company_name")
     private String companyName;
+
     @Column(name="experience")
-    private String experience;
+    private Integer experience;
+
     @Column(name="description")
     private String description;
 
@@ -29,7 +32,7 @@ public class Career {
      */
 
     @Builder
-    public Career(String companyName, String experience, String description) {
+    public Career(String companyName, Integer experience, String description) {
         this.companyName = companyName;
         this.experience = experience;
         this.description = description;
