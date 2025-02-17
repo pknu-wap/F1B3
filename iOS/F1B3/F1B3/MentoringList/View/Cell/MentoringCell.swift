@@ -52,9 +52,9 @@ struct MentoringCellHeaderView: View {
             
             Spacer()
             
-            Image(systemName: "person")
+            Image(.character)
                 .frame(width: 50, height: 50)
-                .background(Color.red)
+                .background(Color.white)
                 .cornerRadius(50)
         }
     }

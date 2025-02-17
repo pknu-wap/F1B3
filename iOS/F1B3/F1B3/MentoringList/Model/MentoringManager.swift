@@ -27,7 +27,7 @@ final class MentoringManager: ObservableObject {
             self.mentoringList.append(contentsOf: mentorings)
         }.resume()
         
-//        self.mentoringList = dummyMentorings
+        self.mentoringList = dummyMentorings
     }
     
     let dummyMentorings: [Mentoring] = [
