@@ -12,17 +12,22 @@ import lombok.NoArgsConstructor;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_id")
+    @Column(name = "user_id")
     private Long id;
-    @Column(name="user_name")
+
+    @Column(name = "user_name")
     private String name;
-    @Column(name="email_adrress")
+
+    @Column(name = "email_adrress")
     private String emailAddress;
-    @Column(name="phone_number")
+
+    @Column(name = "phone_number")
     private String phoneNumber;
-    @Column(name="description")
+
+    @Column(name = "description")
     private String description;
-    @Column(name="profile_url")
+
+    @Column(name = "profile_url")
     private String profileUrl;
 
     @Builder
