@@ -16,16 +16,20 @@ final class MentoringListView: BaseView {
         return tableView
     }()
     
+    let mentoringCreateButton: UIButton = MentoringCreateButton()
+    
     override func setupSubviews() {
         super.setupSubviews()
         
         addSubview(mentoringListTableView)
+        addSubview(mentoringCreateButton)
     }
     
     override func setupSubviewLayouts() {
         super.setupSubviewLayouts()
         
         setupTableViewLayout()
+        setupCreateButtonLayout()
     }
     
     private func setupTableViewLayout() {
@@ -39,8 +43,33 @@ final class MentoringListView: BaseView {
         ])
     }
     
+    private func setupCreateButtonLayout() {
+        mentoringCreateButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            mentoringCreateButton.bottomAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.bottomAnchor,
+                constant: -10
+            ),
+            mentoringCreateButton.trailingAnchor.constraint(
+                equalTo: safeAreaLayoutGuide.trailingAnchor,
+                constant: -20
+            ),
+            mentoringCreateButton.widthAnchor.constraint(
+                equalToConstant: 170
+            ),
+            mentoringCreateButton.heightAnchor.constraint(
+                equalToConstant: 54
+            ),
+        ])
+    }
+    
     func setTableViewDelegate(_ delegate: UITableViewDelegate & UITableViewDataSource) {
         mentoringListTableView.delegate = delegate
         mentoringListTableView.dataSource = delegate
+    }
+    
+    func addCreateButtonAction(_ action: UIAction) {
+        mentoringCreateButton.addAction(action, for: .touchUpInside)
     }
 }
