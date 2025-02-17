@@ -1,5 +1,6 @@
 package com.f1b3.b3.controller;
 
+import com.f1b3.b3.dto.MenteeDto;
 import com.f1b3.b3.entity.Mentoring;
 import com.f1b3.b3.dto.MentoringCreateRequest;
 import com.f1b3.b3.dto.MentoringDetail;
@@ -37,5 +38,11 @@ public class MentoringController {
     public ResponseEntity<MentoringDetail> getMentoring(@PathVariable Long id) {
         MentoringDetail mentoringDetail = mentoringService.getMentoringById(id);
         return ResponseEntity.ok(mentoringDetail);
+    }
+
+    @PostMapping("/{id}/apply")
+    public ResponseEntity<?> applyMentoring(@PathVariable Long id, @RequestBody MenteeDto menteeDto) {
+        String result = mentoringService.apply(id, menteeDto);
+        return ResponseEntity.ok(result);
     }
 }
