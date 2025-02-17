@@ -21,7 +21,26 @@ struct MentoringDTO: Hashable, Codable {
     let mentoringTime: Date? // Date인가요?
     let career: [Career]? // enum인가요?
     let mentor: User // 멘토 없나요?
-    let mentee: [User]? 
+    let mentee: [User]?
+    
+    // TODO: - id 상수값 변경 예정
+    init() {
+        self.id = 1234
+        self.finished = false
+        self.meetingType = nil
+        self.title = nil
+        self.field = []
+        self.introduction = nil
+        self.subject = nil
+        self.method = nil
+        self.preparation = nil
+        self.price = nil
+        self.mentoringTime = nil
+        self.career = nil
+        self.mentor = User(id: 123, name: "김민석", phoneNumber: 01011112222, emailAddress: "alstjr7437@naver.com", description: "", profileURL: "")
+        self.mentee = nil
+        
+    }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

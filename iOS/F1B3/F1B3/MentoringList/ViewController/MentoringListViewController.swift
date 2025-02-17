@@ -34,6 +34,7 @@ final class MentoringListViewController: BaseViewController {
         super.viewDidLoad()
         
         setupTableView()
+        mentoringCreateButtonDidTapAction()
         bindMentoringList()
     }
     
@@ -77,6 +78,17 @@ final class MentoringListViewController: BaseViewController {
                 self?.mentoringListView.mentoringListTableView.reloadData()
             }
             .store(in: &cancellables)
+    }
+    
+    private func mentoringCreateButtonDidTapAction() {
+        mentoringListView.addCreateButtonAction(
+            UIAction { [weak self] _ in
+                guard let self = self else { return }
+                
+                let createMentoringViewController = CreateMentoringViewController()
+                navigationController?.pushViewController(createMentoringViewController, animated: true)
+            }
+        )
     }
 }
 
