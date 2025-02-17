@@ -1,0 +1,50 @@
+{
+    "id": 101,
+    "mentorID": {
+      "id": 1,
+      "name": "김민석",
+      "phoneNumber": 1012345678,
+      "emailAddress": "kimminseok@example.com",
+      "description": "iOS 개발자 & 멘토",
+      "profileURL": "https://example.com/profile1.jpg"
+    },
+    "menteeID": [
+      {
+        "id": 2,
+        "name": "이승훈",
+        "phoneNumber": 1087654321,
+        "emailAddress": "leeseunghoon@example.com",
+        "description": "주니어 개발자",
+        "profileURL": "https://example.com/profile2.jpg"
+      },
+      {
+        "id": 3,
+        "name": "박지현",
+        "phoneNumber": 1055556666,
+        "emailAddress": "parkjihyun@example.com",
+        "description": "UI/UX 디자이너",
+        "profileURL": "https://example.com/profile3.jpg"
+      }
+    ],
+    "finished": false,
+    "meetingType": "online",
+    "title": "iOS 앱 개발 입문",
+    "field": ["IT"],
+    "introduction": "Swift와 UIKit을 활용하여 iOS 앱 개발을 처음부터 배우는 강의입니다.",
+    "subject": "Swift, UIKit, Xcode",
+    "method": "온라인 Zoom 강의",
+    "preparation": "Xcode 설치 필수",
+    "career": [
+      {
+        "companyName": "네이버",
+        "years": "2025-02-17T12:00:00Z",
+        "description": "iOS 개발"
+      },
+      {
+        "companyName": "카카오",
+        "years": "2025-02-17T12:00:00Z",
+        "description": "UX/UI 디자인"
+      }
+    ]
+  }
+  
