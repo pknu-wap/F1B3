@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,54 +16,71 @@ import java.util.List;
 public class Mentoring {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="metoring_id")
+    @Column(name = "mentoring_id")
     private Long id;
 
-    @Column(name="finished")
+    @Column(name = "finished")
     private boolean finished;
 
-    @Column(name="meeting_type")
+    @Column(name = "meeting_type")
     private MeetingType meetingType;
 
-    @Column(name="title")
+    @Column(name = "title")
     private String title;
 
-    @Column(name="field")
+    @Column(name = "field")
     private String field;
 
-    @Column(name="introduction")
+    @Column(name = "introduction")
     private String introduction;
 
-    @Column(name="subject")
+    @Column(name = "subject")
     private String subject;
 
-    @Column(name="method")
+    @Column(name = "method")
     private String method;
 
-    @Column(name="preparation")
+    @Column(name = "preparation")
     private String preparation;
 
-    @Column(name="price")
-    private double price;
+    @Column(name = "price")
+    private Integer price;
 
-    @Column(name="metoring_time")
+    @Column(name = "mentoring_time")
     private String mentoringTime;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name="career_id")
-    private List<Career> career;
+    @OneToMany(mappedBy = "mentoring", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "career_id")
+    private List<Career> career = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name="mentee_id")
-    private List<User> mentee;
+    @JoinColumn(name = "mentee_id")
+    private List<User> mentee = new ArrayList<>();
 
     @Builder
-    public Mentoring(String title, String field, String introduction, String subject, String method, String preparation) {
+    public Mentoring(MeetingType meetingType,
+                     String title, 
+                     String field,
+                     String introduction,
+                     String subject,
+                     String method,
+                     String preparation,
+                     Integer price,
+                     String mentoringTime,
+                     boolean finished,
+                     List<Career> career,
+                     List<User> mentee) {
+        this.finished = finished;
+        this.meetingType = meetingType;
         this.title = title;
         this.field = field;
         this.introduction = introduction;
         this.subject = subject;
         this.method = method;
         this.preparation = preparation;
+        this.mentoringTime = mentoringTime;
+        this.career = career;
+        this.mentee = mentee;
+        this.price = price;
     }
 }
