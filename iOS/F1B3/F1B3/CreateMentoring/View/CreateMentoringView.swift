@@ -78,8 +78,21 @@ final class CreateMentoringView: BaseView {
         ])
     }
     
-    func setupBodyView(currentPage: Int){
+    func setupBodyView(currentPage: Int) {
+        // 기존 bodyView 제거
+        bodyView.removeFromSuperview()
+
+        // 새로운 bodyView 설정
         bodyView = subViews[currentPage]
+        addSubview(bodyView)
+
+        // 새로운 뷰의 오토레이아웃 설정
+        bodyView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            bodyView.topAnchor.constraint(equalTo: createMentoringHeaderView.bottomAnchor),
+            bodyView.bottomAnchor.constraint(equalTo: createMentoringFooterView.topAnchor),
+            bodyView.leftAnchor.constraint(equalTo: leftAnchor),
+            bodyView.rightAnchor.constraint(equalTo: rightAnchor)
+        ])
     }
-    
 }
