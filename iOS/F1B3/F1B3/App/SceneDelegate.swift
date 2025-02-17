@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: windowScene)
-        let VC = UINavigationController(rootViewController: MentoringListViewController(mentoringManager: MentoringManager()))
+        let VC = UINavigationController(rootViewController: OnboardingViewController())
         window?.rootViewController = VC
         window?.makeKeyAndVisible()
     }
