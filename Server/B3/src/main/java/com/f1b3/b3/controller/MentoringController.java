@@ -30,6 +30,7 @@ public class MentoringController {
             return ResponseEntity.status(201).body(result);
         }
         return ResponseEntity.status(401).body(result);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<MentoringDetail> getMentoring(@PathVariable Long id) {

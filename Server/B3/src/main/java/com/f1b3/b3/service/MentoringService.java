@@ -71,6 +71,7 @@ public class MentoringService {
             return "등록되었습니다.";
         }
         return "존재하지 않는 사용자입니다.";
+    }
 
     private MentoringDetail convertToDetailDto(Mentoring mentoring) {
         return MentoringDetail.builder()
