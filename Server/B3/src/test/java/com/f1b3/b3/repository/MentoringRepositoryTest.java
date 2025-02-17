@@ -73,7 +73,7 @@ class MentoringRepositoryTest {
                 .meetingType(MeetingType.ONLINE) // Assuming ONLINE is part of MeetingType enum
                 .finished(false)
                 .career(List.of(Career.builder().experience(5).companyName("wap").build()))
-                .mentee(Arrays.asList(user1, user2))
+                //.mentee(Arrays.asList(user1, user2))
                 .build();
 
         //when
