@@ -1,4 +1,4 @@
-package com.f1b3.b3.Entity;
+package com.f1b3.b3.entity;
 
 import com.f1b3.b3.constance.MeetingType;
 import jakarta.persistence.*;
