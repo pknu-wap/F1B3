@@ -1,5 +1,6 @@
 package com.f1b3.b3.service;
 
+import com.f1b3.b3.constance.MeetingType;
 import com.f1b3.b3.entity.Mentoring;
 import com.f1b3.b3.repository.MentoringRepository;
 import jakarta.annotation.PostConstruct;
@@ -26,6 +27,7 @@ public class MentoringService {
                             .subject("Spring Boot")
                             .method("온라인 미팅")
                             .preparation("기본적인 Java 문법 학습")
+                            .meetingType(MeetingType.ONLINE)
                             .build(),
                     Mentoring.builder()
                             .title("프론트엔드 React 멘토링")
@@ -33,6 +35,7 @@ public class MentoringService {
                             .introduction("React와 TypeScript를 활용한 웹 개발")
                             .subject("React, TypeScript")
                             .method("온라인 미팅")
+                            .meetingType(MeetingType.ONLINE)
                             .preparation("HTML, CSS, JS 기본 학습")
                             .build(),
                     Mentoring.builder()
@@ -42,6 +45,7 @@ public class MentoringService {
                             .subject("Pandas, NumPy")
                             .method("오프라인 미팅")
                             .preparation("Python 기본 문법 학습")
+                            .meetingType(MeetingType.ONLINE)
                             .build()
             );
             mentoringRepository.saveAll(mentorings);

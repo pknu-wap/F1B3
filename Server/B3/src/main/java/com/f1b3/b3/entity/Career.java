@@ -14,22 +14,22 @@ public class Career {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="career_id")
     private Long id;
+
     @Column(name="company_name")
     private String companyName;
+
     @Column(name="experience")
-    private String experience;
+    private Integer experience;
+
     @Column(name="description")
     private String description;
 
-    /*
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mentoring_id")
     private Mentoring mentoring;
 
-     */
-
     @Builder
-    public Career(String companyName, String experience, String description) {
+    public Career(String companyName, Integer experience, String description) {
         this.companyName = companyName;
         this.experience = experience;
         this.description = description;
