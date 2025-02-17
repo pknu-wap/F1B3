@@ -87,3 +87,34 @@ let dummyMentoring = Mentoring(
     ]
 )
 
+/*
+// MARK: - Preview
+
+struct MentoringCell_Previews: PreviewProvider {
+    static var previews: some View {
+        MentoringPreviewWrapper()
+    }
+}
+
+struct MentoringPreviewWrapper: View {
+    @StateObject private var mentoringManager = MentoringManager()
+    
+    var body: some View {
+        ZStack {
+            VStack {
+                if let firstMentoring = mentoringManager.mentoringList.first {
+                    MentoringCell(mentoring: firstMentoring)
+                } else {
+                    Text("Loading dummy data...")
+                        .foregroundColor(.gray)
+                }
+            }
+            .padding()
+        }
+        .onAppear {
+            mentoringManager.fetchDummyMentorings()
+        }
+    }
+}
+
+*/
