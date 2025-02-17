@@ -88,11 +88,11 @@ final class CreateMentoringHeaderView: BaseView {
             let label = stepLabels[index]
             
             if index < currentStep {
-                line.backgroundColor = UIColor.systemBlue 
-                label.textColor = UIColor.systemBlue
+                line.backgroundColor = UIColor.sky
+                label.textColor = UIColor.sky
             } else if index == currentStep {
-                line.backgroundColor = UIColor.red
-                label.textColor = UIColor.systemBlue
+                line.backgroundColor = UIColor.app
+                label.textColor = UIColor.app
             } else {
                 line.backgroundColor = UIColor.gray
                 label.textColor = UIColor.gray
