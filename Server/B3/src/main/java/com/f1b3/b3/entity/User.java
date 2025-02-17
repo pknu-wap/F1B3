@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -29,6 +32,12 @@ public class User {
 
     @Column(name = "profile_url")
     private String profileUrl;
+
+    @OneToMany(mappedBy = "mentor")
+    private List<Mentoring> mentorings = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Apply> applies = new ArrayList<>();
 
     @Builder
     public User(String name, String emailAddress, String phoneNumber, String description, String profileUrl) {
