@@ -24,12 +24,9 @@ public class Career {
     @Column(name="description")
     private String description;
 
-    /*
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mentoring_id")
     private Mentoring mentoring;
-
-     */
 
     @Builder
     public Career(String companyName, Integer experience, String description) {
