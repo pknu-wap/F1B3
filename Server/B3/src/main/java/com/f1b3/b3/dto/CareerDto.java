@@ -1,4 +1,4 @@
-package com.f1b3.b3.payload;
+package com.f1b3.b3.dto;
 
 import com.f1b3.b3.entity.Career;
 import lombok.AllArgsConstructor;

@@ -1,10 +1,9 @@
-package com.f1b3.b3.payload.request;
+package com.f1b3.b3.dto;
 
 import com.f1b3.b3.constance.MeetingType;
 import com.f1b3.b3.entity.Career;
 import com.f1b3.b3.entity.Mentoring;
 import com.f1b3.b3.entity.User;
-import com.f1b3.b3.payload.CareerDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

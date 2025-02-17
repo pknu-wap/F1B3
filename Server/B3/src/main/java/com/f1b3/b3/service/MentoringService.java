@@ -3,7 +3,7 @@ package com.f1b3.b3.service;
 import com.f1b3.b3.constance.MeetingType;
 import com.f1b3.b3.entity.Mentoring;
 import com.f1b3.b3.entity.User;
-import com.f1b3.b3.payload.request.MentoringCreateRequest;
+import com.f1b3.b3.dto.MentoringCreateRequest;
 import com.f1b3.b3.repository.MentoringRepository;
 import com.f1b3.b3.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
