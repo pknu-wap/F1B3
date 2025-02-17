@@ -23,10 +23,33 @@ public class EmailService {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 
         try {
+            String htmlContent = "<!DOCTYPE html>\n" +
+                "<html lang=\"ko\">\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\">\n" +
+                "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+                "    <title>멘토링 신청 완료</title>\n" +
+                "</head>\n" +
+                "<body style=\"font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;\">\n" +
+                "    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" style=\"max-width: 600px; margin: auto; background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\">\n" +
+                "        <tr>\n" +
+                "            <td align=\"center\" style=\"color: #003366; font-size: 24px; font-weight: bold; padding-bottom: 10px;\">\n" +
+                "                [시멘토] 멘토링 신청이 완료되었습니다.\n" +
+                "            </td>\n" +
+                "        </tr>\n" +
+                "        <tr>\n" +
+                "            <td align=\"center\" style=\"color: #003366; font-size: 18px; padding: 10px;\">\n" +
+                "                멘토링 신청이 완료되었습니다.\n" +
+                "            </td>\n" +
+                "        </tr>\n" +
+                "    </table>\n" +
+                "</body>\n" +
+                "</html>";
+
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, false, "UTF-8");
             mimeMessageHelper.setTo(email);
-            mimeMessageHelper.setSubject("Hi! This is new Mail for you!");
-            mimeMessageHelper.setText("@@@@@@@body content@@@@@@@", true);
+            mimeMessageHelper.setSubject("[시멘토] 멘토링 신청이 완료되었습니다.");
+            mimeMessageHelper.setText(htmlContent, true);
             javaMailSender.send(mimeMessage);
 
             log.info("Succeeded to send Email");

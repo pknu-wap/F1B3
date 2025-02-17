@@ -18,6 +18,7 @@ import java.util.List;
 public class MentoringController {
 
     private final MentoringService mentoringService;
+    private final EmailService emailService;
 
     @GetMapping("/list")
     public List<Mentoring> getAllMentorings() {
@@ -43,6 +44,7 @@ public class MentoringController {
     @PostMapping("/{id}/apply")
     public ResponseEntity<?> applyMentoring(@PathVariable Long id, @RequestBody MenteeDto menteeDto) {
         String result = mentoringService.apply(id, menteeDto);
+        emailService.sendEmailNotice(menteeDto.getEmail());
         return ResponseEntity.ok(result);
     }
 }
