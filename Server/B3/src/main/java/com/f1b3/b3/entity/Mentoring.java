@@ -70,6 +70,7 @@ public class Mentoring {
                      Integer price,
                      String mentoringTime,
                      boolean finished,
+                     User mentor,
                      List<Career> career,
                      List<Apply> apply) {
         this.finished = finished;
@@ -83,6 +84,7 @@ public class Mentoring {
         this.mentoringTime = mentoringTime;
         this.career = career;
         this.apply = apply;
+        this.mentor = mentor;
         this.price = price;
     }
 }
