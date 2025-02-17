@@ -59,7 +59,8 @@ public class Mentoring {
 
     @Builder
     public Mentoring(MeetingType meetingType,
-                     String title, String field,
+                     String title, 
+                     String field,
                      String introduction,
                      String subject,
                      String method,

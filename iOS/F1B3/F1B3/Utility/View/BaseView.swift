@@ -24,7 +24,10 @@ class BaseView: UIView {
     
     // MARK: RetsTalk lifecycle
     
-    func setupStyles() {}
+    func setupStyles() {
+        backgroundColor = .white
+        
+    }
     
     func setupSubviews() {}
     

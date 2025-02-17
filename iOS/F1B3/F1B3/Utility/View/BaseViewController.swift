@@ -46,7 +46,9 @@ class BaseViewController: UIViewController {
     
     func setupDataSource() {}
     
-    func setupNavigationBar() {}
+    func setupNavigationBar() {
+        navigationController?.navigationBar.tintColor = .white
+    }
     
     func setupSubscription() {}
 }
