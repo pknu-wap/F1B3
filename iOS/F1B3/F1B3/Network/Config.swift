@@ -6,5 +6,5 @@
 //
 
 enum Config {
-    static let BASE_URL = ""
+    static let BASE_URL = "http://43.201.65.110:8080/api"
 }

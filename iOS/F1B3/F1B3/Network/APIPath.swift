@@ -13,7 +13,7 @@ enum APIPath {
     var url: URL? {
         switch self {
         case .getMentoringList:
-            return URL(string: Config.BASE_URL + "/test")
+            return URL(string: Config.BASE_URL + "/mentoring/list")
         }
     }
 }
