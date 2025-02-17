@@ -1,4 +1,4 @@
-package com.f1b3.b3.Entity;
+package com.f1b3.b3.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
