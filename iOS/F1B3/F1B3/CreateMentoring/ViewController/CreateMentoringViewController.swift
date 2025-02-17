@@ -22,6 +22,7 @@ final class CreateMentoringViewController: BaseViewController {
         self.createMentoringView = CreateMentoringView()
         self.mentoringDTO = MentoringDTO()
         self.currentPage = 0
+        createMentoringView.createMentoringHeaderView.currentStep = currentPage
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -57,7 +58,6 @@ final class CreateMentoringViewController: BaseViewController {
     }
     
     @objc func didTapSetting() {
-        print("Hello")
     }
     
     private func previousButtonDidTapAction() {
