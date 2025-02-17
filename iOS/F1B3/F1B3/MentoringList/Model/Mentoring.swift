@@ -9,8 +9,8 @@ import Foundation
 
 struct Mentoring {
     let id: Int
-    let mentorID: User
-    let menteeID: [User]
+    let mentor: User
+    let mentee: [User]
     let finished: Bool
     let meetingType: MeetingType
     let title: String
