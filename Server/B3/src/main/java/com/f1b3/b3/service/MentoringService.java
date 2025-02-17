@@ -2,10 +2,13 @@ package com.f1b3.b3.service;
 
 import com.f1b3.b3.constance.MeetingType;
 import com.f1b3.b3.dto.CareerDetail;
+import com.f1b3.b3.dto.MenteeDto;
 import com.f1b3.b3.dto.MentoringDetail;
+import com.f1b3.b3.entity.Apply;
 import com.f1b3.b3.entity.Mentoring;
 import com.f1b3.b3.entity.User;
 import com.f1b3.b3.dto.MentoringCreateRequest;
+import com.f1b3.b3.repository.ApplyRepository;
 import com.f1b3.b3.repository.MentoringRepository;
 import com.f1b3.b3.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
@@ -25,6 +28,7 @@ public class MentoringService {
 
     private final MentoringRepository mentoringRepository;
     private final UserRepository userRepository;
+    private final ApplyRepository applyRepository;
 
     @Transactional(readOnly = true)
     public MentoringDetail getMentoringById(Long id) {
@@ -71,6 +75,19 @@ public class MentoringService {
             return "등록되었습니다.";
         }
         return "존재하지 않는 사용자입니다.";
+    }
+
+    @Transactional
+    public String apply(Long mentoringId, MenteeDto menteeDto) {
+        User mentee = userRepository.findById(menteeDto.getUserId())
+                .orElseThrow(() -> new NoSuchElementException(
+                        "존재하지 않는 사용자 입니다. id: " + menteeDto.getUserId() + ", email: " + menteeDto.getEmail()));
+
+        Mentoring mentoring = mentoringRepository.findById(mentoringId)
+                .orElseThrow(() -> new NoSuchElementException("존재하지 않는 공고입니다. id: " + mentoringId));
+
+        applyRepository.save(Apply.of(mentee, mentoring));
+        return "신청되었습니다.";
     }
 
     private MentoringDetail convertToDetailDto(Mentoring mentoring) {
